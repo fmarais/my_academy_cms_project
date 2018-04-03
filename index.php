@@ -13,9 +13,9 @@
             <?php
 
             $query = "SELECT * FROM posts";
-            $select_all_posts_query = mysqli_query($connection, $query);
+            $query_response = mysqli_query($connection, $query);
 
-            while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
+            while ($row = mysqli_fetch_assoc($query_response)) {
                 ?>
 
                 <h1 class="page-header">
@@ -34,8 +34,6 @@
                 <hr>
 
                 <img class="img-responsive" src="images/<?php echo $row['post_image'] ?>" alt="">
-
-
 
                 <hr>
                 <p><?php echo $row['post_content'] ?></p>
