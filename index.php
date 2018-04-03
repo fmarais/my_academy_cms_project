@@ -1,5 +1,6 @@
 <?php include 'includes/header.php' ?>
 <?php include 'includes/navigation.php' ?>
+<?php include 'includes/db.php' ?>
 
 <!-- Page Content -->
 <div class="container">
@@ -9,28 +10,39 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8">
 
-            <h1 class="page-header">
-                Page Heading
-                <small>Secondary Text</small>
-            </h1>
+            <?php
 
-            <!-- First Blog Post -->
-            <h2>
-                <a href="#">Blog Post Title</a>
-            </h2>
-            <p class="lead">
-                by <a href="index.php">Start Bootstrap</a>
-            </p>
-            <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:00 PM</p>
-            <hr>
-            <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus
-                inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum
-                officiis rerum.</p>
-            <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+            $query = "SELECT * FROM posts";
+            $select_all_posts_query = mysqli_query($connection, $query);
 
-            <hr>
+            while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
+                ?>
+
+                <h1 class="page-header">
+                    <?php echo $row['post_title'] ?>
+                    <small>Secondary Text</small>
+                </h1>
+
+                <!-- First Blog Post -->
+                <h2>
+                    <a href="#"><?php echo $row['post_title'] ?></a>
+                </h2>
+                <p class="lead">
+                    by <a href="index.php"><?php echo $row['post_author'] ?></a>
+                </p>
+                <p><span class="glyphicon glyphicon-time"></span> <?php echo $row['post_date'] ?></p>
+                <hr>
+                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+                <hr>
+                <p><?php echo $row['post_content'] ?></p>
+                <a class="btn btn-primary" href="#">Read More <span
+                            class="glyphicon glyphicon-chevron-right"></span></a>
+
+                <hr>
+                <?php
+
+            }
+            ?>
 
         </div>
 
