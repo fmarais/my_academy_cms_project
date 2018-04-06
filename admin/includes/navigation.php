@@ -53,7 +53,7 @@
             </li>
 
             <li>
-                <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Categories</a>
+                <a href="../admin/categories.php"><i class="fa fa-fw fa-wrench"></i> Categories</a>
             </li>
 
 
