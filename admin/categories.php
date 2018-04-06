@@ -61,12 +61,14 @@
 
                             $query = "SELECT * FROM categories";
                             $query_response = mysqli_query($connection, $query);
-                            
+
                             while ($row = mysqli_fetch_assoc($query_response)) {
                                 ?>
                                 <tr>
                                     <td><?php echo $row['cat_id'] ?></td>
                                     <td><?php echo $row['cat_title'] ?></td>
+                                    <td><a href="categories.php?delete=<?php echo $row['cat_id'] ?>">Delete</a></td>
+                                    </td>
                                 </tr>
                                 <?php
 
@@ -74,6 +76,24 @@
                             ?>
                             </tbody>
                         </table>
+
+                        <!-- category delete - start -->
+                        <?php
+
+                        if (isset($_GET['delete'])) {
+                            $query = "DELETE FROM categories WHERE cat_id = {$_GET['delete']} ";
+                            $result = mysqli_query($connection, $query);
+
+                            header("Location: categories.php"); // refresh page to instantly show delete change
+
+                            if (!$result) {
+                                die(mysqli_error($result));
+                            } else {
+                                echo 'Removed: ' . $_GET['delete'];
+                            }
+                        }
+                        ?>
+                        <!-- category delete - end -->
                     </div>
 
                 </div>

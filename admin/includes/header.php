@@ -1,3 +1,5 @@
+<?php ob_start(); ?> <!-- buffer requests headers and sends everyting at the same time -->
+
 <?php include '../includes/db.php' ?>
 
 <!DOCTYPE html>
