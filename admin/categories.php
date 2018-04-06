@@ -27,14 +27,26 @@
                                 <input class="btn btn-primary" name="submit" type="submit" value="Add Category">
                             </div>
                         </form>
+
+                        <!-- form submit - start -->
+                        <?php
+
+                        if (isset($_POST['submit'])) {
+                            if ($_POST['cat_title'] == "" || empty($_POST['cat_title'])) {
+                                echo "Invalid input, please try again";
+                            } else {
+                                $query = "INSERT INTO categories(cat_title) ";
+                                $query .= "VALUE('{$_POST['cat_title']}') ";
+                                $result = mysqli_query($connection, $query);
+
+                                if (!$result) {
+                                    die(mysqli_error($result));
+                                }
+                            }
+                        }
+                        ?>
+                        <!-- form submit - end -->
                     </div>
-
-
-                    <?php
-
-                    $query = "SELECT * FROM categories";
-                    $query_response = mysqli_query($connection, $query);
-                    ?>
 
                     <div class="col-xs-6">
                         <table class="table table-bordered table-hover">
@@ -47,15 +59,15 @@
                             <tbody>
                             <?php
 
+                            $query = "SELECT * FROM categories";
+                            $query_response = mysqli_query($connection, $query);
+                            
                             while ($row = mysqli_fetch_assoc($query_response)) {
                                 ?>
-
                                 <tr>
                                     <td><?php echo $row['cat_id'] ?></td>
                                     <td><?php echo $row['cat_title'] ?></td>
                                 </tr>
-
-
                                 <?php
 
                             }
