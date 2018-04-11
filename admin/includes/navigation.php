@@ -14,7 +14,7 @@
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
 
-        <li><a href="../index.php">HOME PAGE</a></li>
+        <li><a href="/admin/index.php">HOME PAGE</a></li>
 
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b
@@ -44,16 +44,16 @@
                             class="fa fa-fw fa-arrows-v"></i> Posts <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="posts" class="collapse">
                     <li>
-                        <a href="#">View All Posts</a>
+                        <a href="/admin/posts.php">View All Posts</a>
                     </li>
                     <li>
-                        <a href="#">Add Post</a>
+                        <a href="/admin/includes/add_post.php">Add Post</a>
                     </li>
                 </ul>
             </li>
 
             <li>
-                <a href="../admin/categories.php"><i class="fa fa-fw fa-wrench"></i> Categories</a>
+                <a href="/admin/categories.php"><i class="fa fa-fw fa-wrench"></i> Categories</a>
             </li>
 
 
