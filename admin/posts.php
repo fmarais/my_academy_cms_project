@@ -17,11 +17,12 @@
 
                 <?php
 
+                $source = null;
                 if (isset($_GET['source'])) {
-
+                    $source = $_GET['source'];
                 }
 
-                switch ($_GET['source']) {
+                switch ($source) {
                     case 'add_post';
                         include "includes/add_post.php";
                         break;

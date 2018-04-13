@@ -1,5 +1,15 @@
 <?php
 
+function confirm($query_response) {
+    global $connection;
+
+    if (!$query_response) {
+        die(mysqli_error($connection));
+    } else {
+        echo "Update success! <br>";
+    }
+}
+
 function insert_categories() {
     global $connection;
 
