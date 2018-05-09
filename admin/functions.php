@@ -1,16 +1,16 @@
 <?php
 
-function confirm_update($query_response) {
+function confirmQuery($query_response) {
     global $connection;
 
     if (!$query_response) {
         die(mysqli_error($connection));
     } else {
-        echo "Update success! <br>";
+        echo "Ok! <br>";
     }
 }
 
-function insert_categories() {
+function insertCategories() {
     global $connection;
 
     if (isset($_POST['submit'])) {

@@ -29,7 +29,7 @@
                         </form>
 
                         <!-- form submit - start -->
-                        <?php insert_categories(); ?>
+                        <?php insertCategories(); ?>
                         <!-- form submit - end -->
 
                         <!-- ========================== -->
