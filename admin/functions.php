@@ -1,6 +1,6 @@
 <?php
 
-function confirm($query_response) {
+function confirm_update($query_response) {
     global $connection;
 
     if (!$query_response) {

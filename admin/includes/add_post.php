@@ -28,7 +28,7 @@ if (isset($_POST['create_post'])) {
         . ")";
 
     $query_response = mysqli_query($connection, $query);
-    confirm($query_response);
+    confirm_update($query_response);
 }
 
 ?>
