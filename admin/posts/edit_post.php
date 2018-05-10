@@ -1,11 +1,9 @@
 <?php
 
-// catch the edit post get request
-if (isset($_GET['p_id'])) {
-    $id = $_GET['p_id'];
-
+// catch the edit get request
+if (isset($_GET['id'])) {
     //  query
-    $query = "SELECT * FROM posts WHERE post_id = {$id}";
+    $query = "SELECT * FROM posts WHERE post_id = {$_GET['id']}";
     $query_response = mysqli_query($connection, $query);
 
     while ($row = mysqli_fetch_assoc($query_response)) {
@@ -15,7 +13,7 @@ if (isset($_GET['p_id'])) {
         $post_status = $row['post_status'];
         $post_tags = $row['post_tags'];
         $post_content = $row['post_content'];
-
+        $post_category_id = $row['post_category_id'];
         $post_image = $row['post_image'];
     }
     ?>
@@ -33,10 +31,13 @@ if (isset($_GET['p_id'])) {
                 // get categories
                 $query_categories = "SELECT * FROM categories";
                 $query_response_categories = mysqli_query($connection, $query_categories);
-                confirmQuery($query_response_categories);
 
                 while ($row = mysqli_fetch_assoc($query_response_categories)) {
-                    echo "<option value='{$row['cat_id']}'>{$row['cat_title']}</option>";
+                    if ($post_category_id == $row['cat_id']) {
+                        echo "<option value='{$row['cat_id']}' selected>{$row['cat_title']}</option>";
+                    } else {
+                        echo "<option value='{$row['cat_id']}'>{$row['cat_title']}</option>";
+                    }
                 }
                 ?>
             </select>
@@ -53,10 +54,10 @@ if (isset($_GET['p_id'])) {
         </div>
 
         <div class="form-group">
-            <label for="post_image">Post Image</label>
-            <input type="file" class="form-control" name="post_image">
-
-            <img width="100" src="../images/<?php echo $post_image; ?>">
+            <label for="image">Post Image</label>
+            <input type="file" class="form-control" name="image">
+            <br>
+            <img width="100" src="/images/<?php echo $post_image; ?>">
         </div>
 
         <div class="form-group">
@@ -70,32 +71,13 @@ if (isset($_GET['p_id'])) {
                       rows="10"><?php echo $post_content; ?></textarea>
         </div>
 
+        <input name="post_id" type="hidden" value="<?php echo $post_id; ?>">
+
         <div class="form-group">
-            <input class="btn btn-primary" type="submit" name="update_post" value="Update Post">
+            <input class="btn btn-primary" type="submit" name="submit-update" value="Update Post">
         </div>
     </form>
     <?php
 
-}
-?>
-
-<!-- ============================== -->
-
-<?php
-
-// catch the post request to update the post
-if (isset($_POST['update_post'])) {
-    $post_author = $_POST['post_author'];
-    $post_title = $_POST['post_title'];
-    $post_category_id = $_POST['post_category'];
-    $post_status = $_POST['post_status'];
-
-    $post_image = $_FILES['image']['name'];
-    $post_image_temp = $_FILES['image']['tmp_name'];
-
-    $post_content = $_POST['post_content'];
-    $post_tags = $_POST['post_tags'];
-
-    move_uploaded_file($post_image_temp, "../images/$post_image");
 }
 ?>

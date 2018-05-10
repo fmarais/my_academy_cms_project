@@ -17,22 +17,32 @@
 
                 <?php
 
+                // get source
                 $source = null;
                 if (isset($_GET['source'])) {
                     $source = $_GET['source'];
                 }
 
+                // handle delete
+                deletePost();
+
+                // handle update
+                updatePost();
+
+                // handle insert
+                insertPost();
+
                 switch ($source) {
                     case 'add_post';
-                        include "includes/add_post.php";
+                        include "posts/add_post.php";
                         break;
 
                     case 'edit_post';
-                        include "includes/edit_post.php";
+                        include "posts/edit_post.php";
                         break;
 
                     default:
-                        include "includes/all_posts.php";
+                        include "posts/all_posts.php";
                         break;
                 }
 

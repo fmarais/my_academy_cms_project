@@ -6,7 +6,7 @@ function confirmQuery($query_response) {
     if (!$query_response) {
         die(mysqli_error($connection));
     } else {
-        echo "Ok! <br>";
+        echo "<p>Ok!</p>";
     }
 }
 
