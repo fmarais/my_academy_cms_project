@@ -4,9 +4,7 @@
 
 <!-- Page Content -->
 <div class="container">
-
     <div class="row">
-
         <!-- Blog Entries Column -->
         <div class="col-md-8">
 
@@ -53,20 +51,14 @@
 
     </div>
     <!-- /.row -->
-
     <hr>
-
     <!-- Footer -->
     <?php include 'includes/footer.php' ?>
 </div>
 <!-- /.container -->
-
 <!-- jQuery -->
 <script src="js/jquery.js"></script>
-
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
-
 </body>
-
 </html>

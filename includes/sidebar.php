@@ -22,9 +22,7 @@
 
     <!-- Blog Categories Well -->
     <div class="well">
-
         <?php
-
         $query = "SELECT * FROM categories";
         $query_response = mysqli_query($connection, $query);
         ?>
@@ -36,14 +34,8 @@
             <div class="col-lg-12">
                 <ul class="list-unstyled">
                     <?php
-
                     while ($row = mysqli_fetch_assoc($query_response)) {
-                        ?>
-
-                        <li><a href="#"><?php echo $row['cat_title'] ?></a></li>
-
-                        <?php
-
+                        echo "<li><a href='/category.php?category_id={$row['cat_id']}'>{$row['cat_title']}</a></li>";
                     }
                     ?>
                 </ul>
@@ -56,5 +48,4 @@
 
     <!-- Side Widget Well -->
     <?php include 'includes/widget.php' ?>
-
 </div>
