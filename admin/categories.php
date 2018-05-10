@@ -17,31 +17,10 @@
 
 
                     <div class="col-xs-6">
-                        <form action="" method="post">
-                            <label for="cat-title">Add Category</label>
-                            <div class="form-group">
-                                <input name="cat_title" type="text" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <input class="btn btn-primary" name="submit" type="submit" value="Add Category">
-                            </div>
-                        </form>
-
-                        <!-- form submit - start -->
-                        <?php insertCategories(); ?>
-                        <!-- form submit - end -->
-
-                        <!-- ========================== -->
-
-                        <!-- edit form - start -->
-                        <?php if (isset($_GET['edit'])) {
-                            include "includes/update_categories.php";
-                        } ?>
-
+                        <?php insertCategory(); ?>
+                        <?php editCategoryGet(); ?>
+                        <?php editCategoryPost(); ?>
                     </div>
-
-                    <!-- ========================== -->
 
                     <div class="col-xs-6">
                         <table class="table table-bordered table-hover">
@@ -52,13 +31,11 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <?php findAllCategories() ?>
+                            <?php getCategories() ?>
                             </tbody>
                         </table>
 
-                        <!-- delete - start -->
                         <?php deleteCategory(); ?>
-                        <!-- delete - end -->
                     </div>
 
                 </div>
