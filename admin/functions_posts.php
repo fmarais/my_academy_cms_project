@@ -54,6 +54,13 @@ function getCategoryForPostId($post_id) {
     return $query_response = mysqli_query($connection, $query);
 }
 
+function getPostForPostId($post_id) {
+    global $connection;
+
+    $query = "SELECT * FROM posts WHERE post_id = {$post_id}";
+    return $query_response = mysqli_query($connection, $query);
+}
+
 function updatePost() {
     global $connection;
 

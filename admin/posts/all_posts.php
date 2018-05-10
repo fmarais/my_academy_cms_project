@@ -40,6 +40,7 @@
 
             echo "<td><a href='/admin/posts.php?delete={$row['post_id']}'>Delete</a></td>";
             echo "<td><a href='/admin/posts.php?source=edit_post&id={$row['post_id']}'>Edit</a></td>";
+            echo "<td><a href='/admin/posts.php?source=view_post&id={$row['post_id']}'>View</a></td>";
 
             echo "</tr>";
         }
