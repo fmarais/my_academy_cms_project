@@ -14,6 +14,8 @@
             $query_response = mysqli_query($connection, $query);
 
             while ($row = mysqli_fetch_assoc($query_response)) {
+                $post_content = $row['post_content'];
+//                $post_content = substr($post_content, 0, 10);
                 ?>
 
                 <h1 class="page-header">
@@ -25,16 +27,19 @@
                 <h2>
                     <a href="#"><?php echo $row['post_title'] ?></a>
                 </h2>
+
                 <p class="lead">
                     by <a href="index.php"><?php echo $row['post_author'] ?></a>
                 </p>
+
                 <p><span class="glyphicon glyphicon-time"></span> <?php echo $row['post_date'] ?></p>
                 <hr>
 
                 <img class="img-responsive" src="images/<?php echo $row['post_image'] ?>" alt="">
 
                 <hr>
-                <p><?php echo $row['post_content'] ?></p>
+                <p><?php echo $post_content ?></p>
+
                 <a class="btn btn-primary" href="#">Read More <span
                             class="glyphicon glyphicon-chevron-right"></span></a>
 
