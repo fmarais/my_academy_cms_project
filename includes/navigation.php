@@ -33,6 +33,8 @@
                 }
                 ?>
 
+                <li><a href="/admin/index.php">ADMIN</a></li>
+
             </ul>
         </div>
         <!-- /.navbar-collapse -->
