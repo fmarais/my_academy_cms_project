@@ -47,6 +47,13 @@ function insertPost() {
     }
 }
 
+function getCategoryForPostId($post_id) {
+    global $connection;
+
+    $query = "SELECT * FROM categories WHERE cat_id = {$post_id}";
+    return $query_response = mysqli_query($connection, $query);
+}
+
 function updatePost() {
     global $connection;
 

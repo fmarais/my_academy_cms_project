@@ -16,6 +16,7 @@
         <tbody>
 
         <?php
+
         $query = "SELECT * FROM posts";
         $query_response = mysqli_query($connection, $query);
 
@@ -24,7 +25,13 @@
             echo "<td> {$row['post_id']}</td>";
             echo "<td> {$row['post_author']}</td>";
             echo "<td> {$row['post_title']}</td>";
-            echo "<td> {$row['post_category_id']}</td>";
+
+            // post category
+            $query_response_category = getCategoryForPostId($row['post_category_id']);
+            while ($row_category = mysqli_fetch_assoc($query_response_category)) {
+                echo "<td> {$row_category['cat_title']}</td>";
+            }
+
             echo "<td> {$row['post_status']}</td>";
             echo "<td><img class='img-responsive' src='/images/{$row['post_image']}' alt=''></td>";
             echo "<td> {$row['post_tags']}</td>";
