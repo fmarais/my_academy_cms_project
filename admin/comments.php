@@ -34,19 +34,19 @@
 
                 switch ($source) {
                     case 'add';
-                        include "posts/add.php";
+                        include "comments/add.php";
                         break;
 
                     case 'edit';
-                        include "posts/edit.php";
+                        include "comments/edit.php";
                         break;
 
                     case 'view';
-                        include "posts/view.php";
+                        include "comments/view.php";
                         break;
 
                     default:
-                        include "posts/view_all.php";
+                        include "comments/view_all.php";
                         break;
                 }
 
