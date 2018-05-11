@@ -4,7 +4,7 @@ function deleteComment() {
     global $connection;
 
     if (isset($_GET['delete'])) {
-        $query = "DELETE FROM comment WHERE comment_id = {$_GET['delete']}";
+        $query = "DELETE FROM comments WHERE comment_id = {$_GET['delete']}";
         $result = mysqli_query($connection, $query);
 
         header("Location: comments.php"); // refresh page to instantly show delete change
@@ -42,18 +42,23 @@ function insertComment() {
     }
 }
 
-//function getCategoryForPostId($post_id) {
-//    global $connection;
-//
-//    $query = "SELECT * FROM categories WHERE cat_id = {$post_id}";
-//    return $query_response = mysqli_query($connection, $query);
-//}
-
 function getCommentForCommentId($post_id) {
     global $connection;
 
     $query = "SELECT * FROM comments WHERE comment_id = {$post_id}";
     return $query_response = mysqli_query($connection, $query);
+}
+
+function getApproveComment() {
+    global $connection;
+
+    if (isset($_GET['approve'])) {
+        $query = "SELECT * FROM comments WHERE comment_id = {$_GET['approve']}";
+        $query_response = mysqli_query($connection, $query);
+
+        while ($row = mysqli_fetch_assoc($query_response)) {
+        }
+    }
 }
 
 function updateComment() {

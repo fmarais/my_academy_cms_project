@@ -24,14 +24,6 @@
             echo "<td> {$row['comment_post_id']}</td>";
             echo "<td> {$row['comment_author']}</td>";
             echo "<td> {$row['comment_email']}</td>";
-
-            // post category
-//            $query_response_category = getCategoryForPostId($row['post_category_id']);
-//            while ($row_category = mysqli_fetch_assoc($query_response_category)) {
-//                echo "<td> {$row_category['cat_title']}</td>";
-//            }
-
-            echo "<td> {$row['comment_email']}</td>";
             echo "<td> {$row['comment_content']}</td>";
             echo "<td> {$row['comment_status']}</td>";
             echo "<td> {$row['comment_date']}</td>";
