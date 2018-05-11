@@ -4,7 +4,7 @@ function deletePost() {
     global $connection;
 
     if (isset($_GET['delete'])) {
-        $query = "DELETE FROM posts WHERE post_id = {$_GET['delete']} ";
+        $query = "DELETE FROM posts WHERE post_id = {$_GET['delete']}";
         $result = mysqli_query($connection, $query);
 
         header("Location: posts.php"); // refresh page to instantly show delete change

@@ -24,13 +24,13 @@
                 }
 
                 // handle delete
-                deletePost();
+                deleteComment();
 
                 // handle update
-                updatePost();
+                updateComment();
 
                 // handle insert
-                insertPost();
+                insertComment();
 
                 switch ($source) {
                     case 'add';

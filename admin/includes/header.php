@@ -1,7 +1,8 @@
 <?php include '../includes/db.php' ?>
 <?php include 'functions.php' ?>
 <?php include 'functions_category.php' ?>
-<?php include 'functions_posts.php' ?>
+<?php include 'posts/functions_posts.php' ?>
+<?php include 'comments/functions_comments.php' ?>
 
 <?php ob_start(); ?> <!-- buffer requests headers and sends everyting at the same time -->
 
