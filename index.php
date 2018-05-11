@@ -43,7 +43,37 @@
                 <a class="btn btn-primary" href="#">Read More <span
                             class="glyphicon glyphicon-chevron-right"></span></a>
 
+                <br>
+                <br>
+
+                <!-- comments -->
+                <div class="well">
+                    <h4>Leave a Comment:</h4>
+                    <form action="" method="post" role="form">
+
+                        <div class="form-group">
+                            <label for="comment_author">Author</label>
+                            <input type="text" class="form-control" name="comment_author">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="comment_email">Email</label>
+                            <input type="email" class="form-control" name="comment_email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="comment_content">Comment</label>
+                            <textarea class="form-control" rows="3" name="comment_content"></textarea>
+                        </div>
+
+                        <input name="comment_post_id" type="hidden" value="<?php echo $row['post_id']; ?>">
+                        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                    </form>
+                </div>
+
                 <hr>
+
+
                 <?php
 
             }
