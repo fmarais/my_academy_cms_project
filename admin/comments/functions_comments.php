@@ -18,6 +18,8 @@ function insertComment() {
     if (isset($_POST['submit-insert'])) {
         // set default timezone for dates TODO: move out to central place
         date_default_timezone_set('UTC');
+        $date = date('m/d/Y');
+        $status = 'unapproved';
 
         $query = "INSERT INTO comments (";
         $query .= "comment_post_id,";
@@ -33,8 +35,8 @@ function insertComment() {
         $query .= "'{$_POST['comment_author']}',";
         $query .= "'{$_POST['comment_email']}',";
         $query .= "'{$_POST['comment_content']}',";
-        $query .= "'{$_POST['comment_status']}',";
-        $query .= "'{$_POST['comment_date']}'";
+        $query .= "'{$status}',";
+        $query .= "'{$date}'";
         $query .= ")";
 
         $query_response = mysqli_query($connection, $query);

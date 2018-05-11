@@ -1,6 +1,8 @@
 <?php include 'includes/header.php' ?>
 <?php include 'includes/navigation.php' ?>
 <?php include 'includes/db.php' ?>
+<?php include 'admin/comments/functions_comments.php' ?>
+<?php include 'admin/functions.php' ?>
 
 <!-- Page Content -->
 <div class="container">
@@ -46,6 +48,8 @@
                 <br>
                 <br>
 
+                <!-- handle the form post comment insert -->
+                <?php insertComment(); ?>
                 <!-- comments -->
                 <div class="well">
                     <h4>Leave a Comment:</h4>
@@ -67,7 +71,7 @@
                         </div>
 
                         <input name="comment_post_id" type="hidden" value="<?php echo $row['post_id']; ?>">
-                        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                        <button type="submit" class="btn btn-primary" name="submit-insert">Submit</button>
                     </form>
                 </div>
 
