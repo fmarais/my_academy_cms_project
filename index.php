@@ -17,6 +17,7 @@
 
             while ($row = mysqli_fetch_assoc($query_response)) {
                 $post_content = $row['post_content'];
+                // TODO: limit text in video, db data does not support this
 //                $post_content = substr($post_content, 0, 10);
                 ?>
 
@@ -33,9 +34,6 @@
                 <p class="lead">
                     by <a href="index.php"><?php echo $row['post_author'] ?></a>
                 </p>
-
-                <p><span class="glyphicon glyphicon-time"></span> <?php echo $row['post_date'] ?></p>
-                <hr>
 
                 <img class="img-responsive" src="images/<?php echo $row['post_image'] ?>" alt="">
 

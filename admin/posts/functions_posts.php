@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('UTC');
 
 function deletePost() {
     global $connection;
@@ -16,12 +17,9 @@ function insertPost() {
     global $connection;
 
     if (isset($_POST['submit-insert'])) {
-        // set default timezone for dates TODO: move out to central place
-        date_default_timezone_set('UTC');
-
         $post_image = $_FILES['image']['name'];
         $post_image_temp = $_FILES['image']['tmp_name'];
-        $post_date = date('d-m-y');
+        $post_date = date('Y-m-d');
 
         $post_comment_count = 4;
         $post_category_id = 48;

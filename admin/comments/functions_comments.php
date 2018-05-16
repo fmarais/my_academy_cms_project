@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('UTC');
 
 function deleteComment() {
     global $connection;
@@ -16,9 +17,7 @@ function insertComment() {
     global $connection;
 
     if (isset($_POST['submit-insert'])) {
-        // set default timezone for dates TODO: move out to central place
-        date_default_timezone_set('UTC');
-        $date = date('m/d/Y');
+        $date = date('Y-m-d');
         $status = 'unapproved';
 
         $query = "INSERT INTO comments (";
@@ -41,6 +40,7 @@ function insertComment() {
 
         $query_response = mysqli_query($connection, $query);
         confirmQuery($query_response);
+        $_POST = null;
     }
 }
 
