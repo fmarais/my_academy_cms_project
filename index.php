@@ -2,6 +2,7 @@
 <?php include 'includes/navigation.php' ?>
 <?php include 'includes/db.php' ?>
 <?php include 'admin/comments/functions_comments.php' ?>
+<?php include 'admin/posts/functions_posts.php' ?>
 <?php include 'admin/functions.php' ?>
 
 <!-- Page Content -->
@@ -28,7 +29,7 @@
 
                 <!-- First Blog Post -->
                 <h2>
-                    <a href="#"><?php echo $row['post_title'] ?></a>
+                    <a href="/post.php?p_id=<?php echo $row['post_id'] ?>"><?php echo $row['post_title'] ?></a>
                 </h2>
 
                 <p class="lead">

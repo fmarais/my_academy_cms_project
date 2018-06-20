@@ -9,6 +9,7 @@
             <th>Content</th>
             <th>Status</th>
             <th>Date</th>
+            <th>In Response To</th>
         </tr>
         </thead>
         <tbody>
@@ -27,6 +28,8 @@
             echo "<td> {$row['comment_content']}</td>";
             echo "<td> {$row['comment_status']}</td>";
             echo "<td> {$row['comment_date']}</td>";
+
+            echo "<td><a href='/post.php?p_id={$row['comment_post_id']}'>View Post</a></td>";
 
             echo "<td><a href='/admin/comments.php?delete={$row['comment_id']}'>Delete</a></td>";
             echo "<td><a href='/admin/comments.php?source=edit&id={$row['comment_id']}'>Edit</a></td>";
