@@ -1,4 +1,5 @@
 <?php
+
 date_default_timezone_set('UTC');
 
 function deleteComment() {
@@ -84,6 +85,36 @@ function updateComment() {
         $query .= "comment_status = '{$_POST['comment_status']}', ";
         $query .= "comment_date = '{$_POST['comment_date']}' ";
         $query .= "WHERE comment_id = {$_POST['comment_id']} ";
+
+        $query_response = mysqli_query($connection, $query);
+        confirmQuery($query_response);
+    }
+}
+
+function approveComment() {
+    global $connection;
+
+    // catch the post request to update the post
+    if (isset($_GET['approve'])) {
+        // update query
+        $query = "UPDATE comments SET ";
+        $query .= "comment_status = 'approved' ";
+        $query .= "WHERE comment_id = {$_GET['approve']} ";
+
+        $query_response = mysqli_query($connection, $query);
+        confirmQuery($query_response);
+    }
+}
+
+function unApproveComment() {
+    global $connection;
+
+    // catch the post request to update the post
+    if (isset($_GET['unapprove'])) {
+        // update query
+        $query = "UPDATE comments SET ";
+        $query .= "comment_status = 'unapproved' ";
+        $query .= "WHERE comment_id = {$_GET['unapprove']} ";
 
         $query_response = mysqli_query($connection, $query);
         confirmQuery($query_response);

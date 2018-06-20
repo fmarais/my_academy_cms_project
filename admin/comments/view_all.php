@@ -31,6 +31,9 @@
 
             echo "<td><a href='/post.php?p_id={$row['comment_post_id']}'>View Post</a></td>";
 
+            echo "<td><a href='/admin/comments.php?approve={$row['comment_id']}'>Approve</a></td>";
+            echo "<td><a href='/admin/comments.php?unapprove={$row['comment_id']}'>Unnapprove</a></td>";
+
             echo "<td><a href='/admin/comments.php?delete={$row['comment_id']}'>Delete</a></td>";
             echo "<td><a href='/admin/comments.php?source=edit&id={$row['comment_id']}'>Edit</a></td>";
             echo "<td><a href='/admin/comments.php?source=view&id={$row['comment_id']}'>View</a></td>";

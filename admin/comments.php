@@ -32,6 +32,10 @@
                 // handle insert
                 insertComment();
 
+                // handle approve and unapprove
+                approveComment();
+                unApproveComment();
+
                 switch ($source) {
                     case 'add';
                         include "comments/add.php";
