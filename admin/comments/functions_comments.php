@@ -41,21 +41,31 @@ function insertComment() {
 
         $query_response = mysqli_query($connection, $query);
         confirmQuery($query_response);
+
+        incrementPostCommentCount($_POST['comment_post_id']);
         $_POST = null;
     }
+}
+
+function incrementPostCommentCount($post_id) {
+    global $connection;
+
+    $query = "UPDATE posts SET post_comment_count = post_comment_count + 1 ";
+    $query .= "WHERE post_id = $post_id";
+    $query_response = mysqli_query($connection, $query);
 }
 
 function getCommentForCommentId($comment_id) {
     global $connection;
 
-    $query = "SELECT * FROM comments WHERE comment_id = {$comment_id}";
+    $query = "SELECT * FROM comments WHERE comment_id = $comment_id";
     return $query_response = mysqli_query($connection, $query);
 }
 
 function getCommentsForPostId($post_id) {
     global $connection;
 
-    $query = "SELECT * FROM comments WHERE comment_post_id = {$post_id}";
+    $query = "SELECT * FROM comments WHERE comment_post_id = $post_id AND comment_status = 'approved'";
     return $query_response = mysqli_query($connection, $query);
 }
 

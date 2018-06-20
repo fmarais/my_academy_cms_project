@@ -65,16 +65,24 @@ while ($row = mysqli_fetch_assoc($query_response)) {
 
     // comments list for post
     $query_response2 = getCommentsForPostId($row['post_id']);
-    while ($row2 = mysqli_fetch_assoc($query_response2)) {
-        if ($row2['comment_status'] === 'approved') {
-            ?>
-            <p>
-                by <?php echo $row2['comment_author'] ?>
-                <?php echo $row2['comment_content'] ?>
-            </p>
 
-            <?php
+    if ($query_response2 !== false && mysqli_num_rows($query_response2) > 0) {
+        ?>
+        <h3>Comments</h3>
+        <?php
 
+        while ($row2 = mysqli_fetch_assoc($query_response2)) {
+            if ($row2['comment_status'] === 'approved') {
+                ?>
+                <p>
+                    <b>by <?php echo $row2['comment_author'] ?></b>
+
+                    <i><?php echo $row2['comment_content'] ?></i>
+                </p>
+
+                <?php
+
+            }
         }
     }
 }
