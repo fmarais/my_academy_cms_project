@@ -72,17 +72,15 @@ while ($row = mysqli_fetch_assoc($query_response)) {
         <?php
 
         while ($row2 = mysqli_fetch_assoc($query_response2)) {
-            if ($row2['comment_status'] === 'approved') {
-                ?>
-                <p>
-                    <b>by <?php echo $row2['comment_author'] ?></b>
+            ?>
+            <p>
+                <b>by <?php echo $row2['comment_author'] ?></b>
 
-                    <i><?php echo $row2['comment_content'] ?></i>
-                </p>
+                <i><?php echo $row2['comment_content'] ?></i>
+            </p>
 
-                <?php
+            <?php
 
-            }
         }
     }
 }
