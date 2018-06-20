@@ -44,10 +44,17 @@ function insertComment() {
     }
 }
 
-function getCommentForCommentId($post_id) {
+function getCommentForCommentId($comment_id) {
     global $connection;
 
-    $query = "SELECT * FROM comments WHERE comment_id = {$post_id}";
+    $query = "SELECT * FROM comments WHERE comment_id = {$comment_id}";
+    return $query_response = mysqli_query($connection, $query);
+}
+
+function getCommentsForPostId($post_id) {
+    global $connection;
+
+    $query = "SELECT * FROM comments WHERE comment_post_id = {$post_id}";
     return $query_response = mysqli_query($connection, $query);
 }
 

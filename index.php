@@ -79,6 +79,20 @@
 
                 <?php
 
+                // comments list for post
+                $query_response = getCommentsForPostId($row['post_id']);
+                while ($row2 = mysqli_fetch_assoc($query_response)) {
+                    ?>
+
+                    <p>
+                        by <?php echo $row2['comment_author'] ?>
+                        <?php echo $row2['comment_content'] ?>
+                    </p>
+
+                    <?php
+                }
+
+
             }
             ?>
 

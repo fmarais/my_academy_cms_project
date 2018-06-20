@@ -49,7 +49,8 @@
 
                     <!-- handle the form post comment insert -->
                     <?php insertComment(); ?>
-                    <!-- comments -->
+
+                    <!-- comments form -->
                     <div class="well">
                         <h4>Leave a Comment:</h4>
                         <form action="" method="post" role="form">
@@ -76,8 +77,20 @@
 
                     <hr>
 
-
                     <?php
+
+                    // comments list for post
+                    $query_response = getCommentsForPostId($row['post_id']);
+                    while ($row2 = mysqli_fetch_assoc($query_response)) {
+                        ?>
+
+                        <p>
+                            by <?php echo $row2['comment_author'] ?>
+                            <?php echo $row2['comment_content'] ?>
+                        </p>
+
+                        <?php
+                    }
 
                 }
             }
