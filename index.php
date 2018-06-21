@@ -13,7 +13,7 @@
 
             <?php
 
-            $query = "SELECT * FROM posts";
+            $query = "SELECT * FROM posts where post_status = 'published'";
             $query_response = mysqli_query($connection, $query);
             include 'includes/post.php';
             ?>
